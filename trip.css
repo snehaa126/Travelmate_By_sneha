@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-form {
+    background-color: #faa8a8;
+    padding: 25px;
+    border: 2px solid #000;
+
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    color: #0d0101;
+}
+
+.profile-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    background-color: #010903;
+    color: #faa8a8;
+    padding: 3%;
+    border-radius: 30PX;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.trip-plan {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #faa8a8;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.trip-plan h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #0d0101;
+    font-weight: bold;
+}
+
+.trip-plan-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fbfdfe;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.trip-plan-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #070101;
+}
+
+.trip-plan-item input,
+.trip-plan-item select {
+    width: 100%;
+    padding: 8px;
+  border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-trip-plan {
+    background-color: #010903;
+    color: #faa8a8;
+    border: none;
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px 15px;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-trip-plan:hover {
+    background-color: #212322;
+}

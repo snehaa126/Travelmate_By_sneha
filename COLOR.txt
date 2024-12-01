@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Form</title>
+    <link rel="stylesheet" href="pro.css">
+</head>
+<body>
+    <div class="profile-form">
+        <h2>Profile Information</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="profile-photo">Profile Photo:</label>
+                <input type="file" id="profile-photo" name="profile-photo" accept="image/*" required>
+                <img id="photo-preview" class="photo-preview" alt="Profile Preview">
+            </div>
+            
+            <div class="form-group">
+                <label for="languages">Languages Spoken:</label>
+                <select id="languages" name="languages[]" multiple required>
+                    <option value="english">English</option>
+                    <option value="marathi">Marathi</option>
+                    <option value="french">French</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="looking-for">Looking For:</label>
+                <select id="looking-for" name="looking-for[]" multiple required>
+                    <option value="friends">Friends</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="soulmate">Soulmate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <select id="education" name="education" required>
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="post-graduation">Post Graduation</option>
+                    <option value="phd">Ph.D.</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Relationship status">Relationship status:</label>
+                <select id="Relationship status" name="Relationship-status" required>
+                    <option value="Unmarried">Unmarried</option>
+                    <option value="Married">Married</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="income">Income:</label>
+                <input type="text" id="income" name="income" required>
+            </div>
+        
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const profilePhotoInput = document.getElementById('profile-photo');
+        const photoPreview = document.getElementById('photo-preview');
+        const statusSelect = document.getElementById('status');
+        const statusIndicator = document.getElementById('status-indicator');
+
+        profilePhotoInput.addEventListener('change', function() {
+            const file = profilePhotoInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                photoPreview.src = e.target.result;
+                photoPreview.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        statusSelect.addEventListener('change', function() {
+            if (statusSelect.value === 'online') {
+                statusIndicator.style.backgroundColor = 'green';
+            } else if (statusSelect.value === 'offline') {
+                statusIndicator.style.backgroundColor = 'gray';
+            } else if (statusSelect.value === 'busy') {
+                statusIndicator.style.backgroundColor = 'red';
+            }
+        });
+
+        statusSelect.dispatchEvent(new Event('change'));
+    </script>
+</body>
+</html>
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-form {
+    background-color: #faa8a8;
+    padding: 25px;
+    border: 2px solid #000;
+
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    color: #0d0101;
+}
+
+.profile-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #fbfcfd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fbfdfe;
+    color: #070101;
+}
+
+.form-group select[multiple] {
+    height: 100px;
+}
+
+.photo-preview {
+    display: none;
+    margin-top: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #010903;
+    color: #faa8a8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #212322;
+}
